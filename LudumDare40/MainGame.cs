@@ -41,6 +41,7 @@ namespace LudumDare40
 		protected override void Initialize()
 		{
 			ContentLoader.Initialize(Content);
+			Primitives.Initialize(GraphicsDevice);
 
 			camera = new Camera();
 			inputGenerator = new InputGenerator(camera);
