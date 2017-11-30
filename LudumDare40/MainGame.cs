@@ -1,5 +1,6 @@
 ﻿using System;
 using LudumDare40.Input;
+using LudumDare40.State;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -23,6 +24,7 @@ namespace LudumDare40
 		private SuperBatch superBatch;
 		private InputGenerator inputGenerator;
 		private Camera camera;
+		private GameLoop gameLoop;
 
 		public MainGame()
 		{
@@ -45,6 +47,8 @@ namespace LudumDare40
 
 			camera = new Camera();
 			inputGenerator = new InputGenerator(camera);
+			gameLoop = new GameplayLoop();
+			gameLoop.Initialize(camera);
 
 			MessageSystem.ProcessChanges();
 		}
@@ -65,6 +69,7 @@ namespace LudumDare40
 
 			inputGenerator.GenerateEvents();
 			camera.Update(dt);
+			gameLoop.Update(dt);
 
 			MessageSystem.ProcessChanges();
 		}
@@ -72,6 +77,7 @@ namespace LudumDare40
 		protected override void Draw(GameTime gameTime)
 		{
 			GraphicsDevice.Clear(Color.Black);
+			gameLoop.Draw(superBatch);
 		}
 	}
 }
