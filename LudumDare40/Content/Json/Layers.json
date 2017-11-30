@@ -1,0 +1,11 @@
+﻿[
+	{
+		"UpdateOrder": [
+			"World"
+		],
+
+		"DrawOrder": [
+			"World"
+		]
+	}
+]
