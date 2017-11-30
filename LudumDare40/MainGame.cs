@@ -1,13 +1,28 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using LudumDare40.Input;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace LudumDare40
 {
+	[Flags]
+	public enum Alignments
+	{
+		Left = 1 << 0,
+		Right = 1 << 1,
+		Top = 1 << 2,
+		Bottom = 1 << 3,
+		Center = 0
+	}
+
 	public class MainGame : Game
 	{
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
+		private SuperBatch superBatch;
+		private InputGenerator inputGenerator;
+		private Camera camera;
 
 		public MainGame()
 		{
@@ -25,11 +40,18 @@ namespace LudumDare40
 		
 		protected override void Initialize()
 		{
+			ContentLoader.Initialize(Content);
+
+			camera = new Camera();
+			inputGenerator = new InputGenerator(camera);
+
+			MessageSystem.ProcessChanges();
 		}
 		
 		protected override void LoadContent()
 		{
 			spriteBatch = new SpriteBatch(GraphicsDevice);
+			superBatch = new SuperBatch(spriteBatch, GraphicsDevice, camera);
 		}
 		
 		protected override void UnloadContent()
@@ -38,6 +60,12 @@ namespace LudumDare40
 		
 		protected override void Update(GameTime gameTime)
 		{
+			float dt = (float)gameTime.ElapsedGameTime.Milliseconds / 1000;
+
+			inputGenerator.GenerateEvents();
+			camera.Update(dt);
+
+			MessageSystem.ProcessChanges();
 		}
 		
 		protected override void Draw(GameTime gameTime)
