@@ -11,7 +11,12 @@ namespace LudumDare40
 
 		public MainGame()
 		{
-			graphics = new GraphicsDeviceManager(this);
+			graphics = new GraphicsDeviceManager(this)
+			{
+				PreferredBackBufferWidth = Resolution.Width,
+				PreferredBackBufferHeight = Resolution.Height
+			};
+
 			Content.RootDirectory = "Content";
 			Window.Title = "Ludum Dare 40";
 			Window.Position = new Point(150);
