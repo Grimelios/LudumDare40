@@ -84,6 +84,8 @@
     <Compile Include="Resolution.cs" />
     <Compile Include="Shapes\Edge.cs" />
     <Compile Include="SuperBatch.cs" />
+    <Compile Include="UI\Hud\HeadsUpDisplay.cs" />
+    <Compile Include="UI\Hud\HudElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
