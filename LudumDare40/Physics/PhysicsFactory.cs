@@ -20,6 +20,7 @@ namespace LudumDare40.Physics
 	
 	public enum PhysicsGroups
 	{
+		World
 	}
 	
 	public static class PhysicsFactory
@@ -79,7 +80,7 @@ namespace LudumDare40.Physics
 			return body;
 		}
 		
-		public static Fixture AttachEdge(Body body, Line line, Units units, object userData = null)
+		public static Fixture AttachEdge(Body body, Edge line, Units units, object userData = null)
 		{
 			Vector2 start = line.Start;
 			Vector2 end = line.End;

@@ -7,9 +7,9 @@ using Microsoft.Xna.Framework;
 
 namespace LudumDare40.Shapes
 {
-	public class Line
+	public class Edge
 	{
-		public Line(Vector2 start, Vector2 end)
+		public Edge(Vector2 start, Vector2 end)
 		{
 			Start = start;
 			End = end;

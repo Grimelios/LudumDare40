@@ -49,6 +49,11 @@ namespace LudumDare40
 			sb.End();
 		}
 
+		public void Draw(Texture2D texture, Vector2 position, Rectangle? sourceRect)
+		{
+			sb.Draw(texture, position, sourceRect, Color.White);
+		}
+
 		public void Draw(Texture2D texture, Vector2 position, Rectangle? sourceRect, Color color, float rotation, Vector2 origin,
 			float scale, SpriteEffects effects)
 		{
