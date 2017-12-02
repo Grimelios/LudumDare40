@@ -13,11 +13,18 @@ namespace LudumDare40.State
 {
 	public class GameplayLoop : GameLoop
 	{
+		private const int Gravity = 20;
+
 		private Scene scene;
+		private PhysicsAccumulator accumulator;
 
 		public override void Initialize(Camera camera)
 		{
+			World world = new World(new Vector2(0, Gravity));
+			PhysicsFactory.Initialize(world);
+
 			scene = new Scene();
+			accumulator = new PhysicsAccumulator(world);
 
 			Player player = new Player();
 			player.Position = new Vector2(200);
@@ -27,6 +34,7 @@ namespace LudumDare40.State
 		
 		public override void Update(float dt)
 		{
+			accumulator.Update(dt);
 			scene.Update(dt);
 		}
 		

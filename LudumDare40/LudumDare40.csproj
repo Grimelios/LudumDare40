@@ -60,6 +60,7 @@
     <Compile Include="Entities\Core\Scene.cs" />
     <Compile Include="Entities\Core\SceneLayer.cs" />
     <Compile Include="Entities\Player.cs" />
+    <Compile Include="Entities\PlayerData.cs" />
     <Compile Include="Entities\Tilemap.cs" />
     <Compile Include="Entities\TilemapData.cs" />
     <Compile Include="Input\Data\KeyboardData.cs" />

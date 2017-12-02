@@ -892,14 +892,6 @@ namespace FarseerPhysics.Dynamics
                 _torque += (point.X - _sweep.C.X) * force.Y - (point.Y - _sweep.C.Y) * force.X;
             }
         }
-		
-		/// <summary>
-		/// Applies a raw force to the center of body. Modifies velocity without regard to mass. Added by Grimelios.
-		/// </summary>
-		public void ApplyRawForce(Vector2 impulse)
-		{
-			ApplyForce(impulse * _mass * 2);
-		}
 
 		/// <summary>
 		/// Apply a torque. This affects the angular velocity
@@ -919,6 +911,14 @@ namespace FarseerPhysics.Dynamics
                 _torque += torque;
             }
         }
+
+		/// <summary>
+		/// Applies a raw force to the center of body. Modifies velocity without regard to mass. Added by Grimelios.
+		/// </summary>
+		public void ApplyRawForce(Vector2 impulse)
+		{
+			ApplyForce(impulse * _mass * 2);
+		}
 
 		/// <summary>
 		/// Apply an impulse at a point. This immediately modifies the velocity.
