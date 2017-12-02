@@ -41,6 +41,10 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animations\Animation.cs" />
+    <Compile Include="Animations\AnimationLoader.cs" />
+    <Compile Include="Animations\AnimationPlayer.cs" />
+    <Compile Include="Animations\AnimationStrip.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="ContentLoader.cs" />
     <Compile Include="CoreFunctions.cs" />
@@ -50,10 +54,12 @@
     <Compile Include="Core\Sprite.cs" />
     <Compile Include="Core\SpriteText.cs" />
     <Compile Include="Core\Timer.cs" />
+    <Compile Include="Entities\Core\AnimatedEntity.cs" />
     <Compile Include="Entities\Core\Entity.cs" />
     <Compile Include="Entities\Core\LivingEntity.cs" />
     <Compile Include="Entities\Core\Scene.cs" />
     <Compile Include="Entities\Core\SceneLayer.cs" />
+    <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Tilemap.cs" />
     <Compile Include="Entities\TilemapData.cs" />
     <Compile Include="Input\Data\KeyboardData.cs" />
@@ -120,6 +126,9 @@
       <Project>{0aad36e3-51a5-4a07-ab60-5c8a66bd38b7}</Project>
       <Name>Farseer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Json\Animations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

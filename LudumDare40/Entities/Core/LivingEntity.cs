@@ -8,7 +8,8 @@ using Microsoft.Xna.Framework;
 
 namespace LudumDare40.Entities.Core
 {
-	public abstract class LivingEntity : Entity, ITargetable
+	// All living entities are assumed to animate themselves.
+	public abstract class LivingEntity : AnimatedEntity, ITargetable
 	{
 		public delegate void HealthEventHandler(int value, int previousValue);
 		public delegate void DeathEventHandler(LivingEntity entity);

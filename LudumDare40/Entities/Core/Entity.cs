@@ -14,6 +14,7 @@ namespace LudumDare40.Entities.Core
 {
 	public enum EntityTypes
 	{
+		Player,
 		World,
 
 		// This type should be used for entities not directly managed by the scene.
