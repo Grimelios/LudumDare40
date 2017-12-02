@@ -2,10 +2,12 @@
 	{
 		"UpdateOrder": [
 			"Player",
+			"Enemy",
 			"World"
 		],
 
 		"DrawOrder": [
+			"Enemy",
 			"Player",
 			"World"
 		]

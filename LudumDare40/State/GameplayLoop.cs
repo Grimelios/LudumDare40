@@ -2,6 +2,7 @@
 using LudumDare40.Core;
 using LudumDare40.Entities;
 using LudumDare40.Entities.Core;
+using LudumDare40.Entities.Enemies;
 using LudumDare40.Interfaces;
 using LudumDare40.Physics;
 using LudumDare40.Shapes;
@@ -26,10 +27,14 @@ namespace LudumDare40.State
 			scene = new Scene();
 			accumulator = new PhysicsAccumulator(world);
 
+			Enemy archer = new Archer();
+			archer.Position = new Vector2(-200);
+
 			Player player = new Player();
 			player.Position = new Vector2(200);
 
 			scene.Add(0, player);
+			scene.Add(0, archer);
 		}
 		
 		public override void Update(float dt)

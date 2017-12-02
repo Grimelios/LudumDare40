@@ -14,6 +14,7 @@ namespace LudumDare40.Entities.Core
 {
 	public enum EntityTypes
 	{
+		Enemy,
 		Player,
 		World,
 

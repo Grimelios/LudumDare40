@@ -1,0 +1,9 @@
+﻿[
+	{
+		"Name": "Archer",
+		"Animations": "ArcherAnimations.json",
+		"Health": 80,
+		"HitboxWidth": 48,
+		"HitboxHeight": 96
+	}
+]

@@ -1,0 +1,12 @@
+﻿{
+	"Texture": "Archer",
+	"Strips": [
+		{
+			"Name": "Idle",
+			"FrameWidth": 48,
+			"FrameHeight": 96,
+			"FrameCount": 2,
+			"FrameRate": 600
+		}
+	]
+}

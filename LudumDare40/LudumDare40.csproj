@@ -59,6 +59,9 @@
     <Compile Include="Entities\Core\LivingEntity.cs" />
     <Compile Include="Entities\Core\Scene.cs" />
     <Compile Include="Entities\Core\SceneLayer.cs" />
+    <Compile Include="Entities\Enemies\Archer.cs" />
+    <Compile Include="Entities\Enemies\Enemy.cs" />
+    <Compile Include="Entities\Enemies\EnemyData.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\PlayerData.cs" />
     <Compile Include="Entities\Tilemap.cs" />
@@ -114,7 +117,13 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\LudumDare40.mgcb" />
     <None Include="app.manifest" />
+    <None Include="Content\Json\Animations\ArcherAnimations.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Json\Animations\PlayerAnimations.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Json\Enemies.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\Json\HeadsUpDisplay.json">
