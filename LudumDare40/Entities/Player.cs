@@ -77,6 +77,8 @@ namespace LudumDare40.Entities
 				Body.Accelerating = true;
 				Body.Decelerating = false;
 				Body.ApplyRawForce(new Vector2(PhysicsConvert.ToMeters(playerData.Acceleration * multiplier), 0));
+
+				FlipHorizontally = aDown;
 			}
 			else if (Math.Abs(Body.LinearVelocity.X) > 0)
 			{

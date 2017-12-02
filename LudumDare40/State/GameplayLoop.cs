@@ -13,7 +13,7 @@ namespace LudumDare40.State
 {
 	public class GameplayLoop : GameLoop
 	{
-		private const int Gravity = 20;
+		private const int Gravity = 0;
 
 		private Scene scene;
 		private PhysicsAccumulator accumulator;
