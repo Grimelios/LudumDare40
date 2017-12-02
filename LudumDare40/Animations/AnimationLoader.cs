@@ -17,7 +17,7 @@ namespace LudumDare40.Animations
 
 			if (!cache.TryGetValue(filename, out animation))
 			{
-				animation = JsonUtilities.Deserialize<Animation>(filename);
+				animation = JsonUtilities.Deserialize<Animation>("Animations/" + filename);
 				cache.Add(filename, animation);
 			}
 

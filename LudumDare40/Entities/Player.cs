@@ -15,6 +15,7 @@ namespace LudumDare40.Entities
 		public Player() : base(EntityTypes.Player)
 		{
 			LoadAnimations("PlayerAnimations.json");
+			PlayAnimation("Idle");
 
 			MessageSystem.Subscribe(MessageTypes.Keyboard, this);
 			MessageSystem.Subscribe(MessageTypes.Mouse, this);

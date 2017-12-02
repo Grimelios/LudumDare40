@@ -35,18 +35,15 @@ namespace LudumDare40.Animations
 
 			// Animation frames are assumed centered.
 			origin = new Vector2(width, height) / 2;
-			RecomputeFrame(strip.FrameStart);
+			currentFrame = strip.FrameStart;
 
 			// Each frame is also assumed to have the same duration.
 			frameDuration = 1000f / strip.FrameCount;
+			Color = Color.White;
+			Scale = 1;
 		}
 
-		private void RecomputeFrame(int currentFrame)
-		{
-			this.currentFrame = currentFrame;
-
-			sourceRect.X = (currentFrame - strip.FrameStart) * strip.FrameWidth;
-		}
+		public bool FlipHorizontally { get; set; }
 
 		public override void Update(float dt)
 		{
@@ -54,13 +51,17 @@ namespace LudumDare40.Animations
 
 			if (frameElapsed >= frameDuration)
 			{
-				RecomputeFrame(++currentFrame);
+				currentFrame = currentFrame == strip.FrameStart + strip.FrameCount ? strip.FrameStart : ++currentFrame;
+				sourceRect.X = (currentFrame - strip.FrameStart) * strip.FrameWidth;
+				frameElapsed -= frameDuration;
 			}
 		}
 
 		public override void Draw(SuperBatch sb)
 		{
-			sb.Draw(texture, Position, sourceRect, Color, Rotation, origin, Scale, SpriteEffects.None);
+			SpriteEffects effects = FlipHorizontally ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+
+			sb.Draw(texture, Position, sourceRect, Color, Rotation, origin, Scale, effects);
 		}
 	}
 }

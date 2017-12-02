@@ -1,0 +1,12 @@
+﻿{
+	"Texture": "Player",
+	"Strips": [
+		{
+			"Name": "Idle",
+			"FrameWidth": 48,
+			"FrameHeight": 96,
+			"Frames": "0-1",
+			"FrameRate": 600 
+		}
+	]
+}

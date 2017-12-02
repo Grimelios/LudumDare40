@@ -51,6 +51,8 @@ namespace LudumDare40
 			gameLoop.Initialize(camera);
 
 			MessageSystem.ProcessChanges();
+
+			base.Initialize();
 		}
 		
 		protected override void LoadContent()

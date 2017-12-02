@@ -13,16 +13,28 @@ namespace LudumDare40.State
 {
 	public class GameplayLoop : GameLoop
 	{
+		private Scene scene;
+
 		public override void Initialize(Camera camera)
 		{
+			scene = new Scene();
+
+			Player player = new Player();
+			player.Position = new Vector2(200);
+
+			scene.Add(0, player);
 		}
 		
 		public override void Update(float dt)
 		{
+			scene.Update(dt);
 		}
 		
 		public override void Draw(SuperBatch sb)
 		{
+			sb.Begin(Coordinates.World);
+			scene.Draw(sb);
+			sb.End();
 		}
 	}
 }

@@ -16,6 +16,12 @@ namespace LudumDare40.Entities.Core
 		{
 		}
 
+		protected bool FlipHorizontally
+		{
+			// After an entity has been created, its animation player should never be null.
+			set { animationPlayer.FlipHorizontally = value; }
+		}
+
 		protected void LoadAnimations(string filename)
 		{
 			animation = AnimationLoader.Load(filename);
