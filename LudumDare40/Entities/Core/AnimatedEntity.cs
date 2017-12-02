@@ -12,6 +12,8 @@ namespace LudumDare40.Entities.Core
 		private Animation animation;
 		private AnimationPlayer animationPlayer;
 
+		private bool flipHorizontally;
+
 		protected AnimatedEntity(EntityTypes entityType) : base(entityType)
 		{
 		}
@@ -29,12 +31,17 @@ namespace LudumDare40.Entities.Core
 
 		protected void PlayAnimation(string name)
 		{
+			bool flipHorizontally = false;
+
 			if (animationPlayer != null)
 			{
+				flipHorizontally = animationPlayer.FlipHorizontally;
 				Components.Remove(animationPlayer);
 			}
 
 			animationPlayer = animation.Play(name);
+			animationPlayer.FlipHorizontally = flipHorizontally;
+
 			Components.Add(animationPlayer);
 		}
 	}

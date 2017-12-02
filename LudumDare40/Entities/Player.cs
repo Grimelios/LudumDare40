@@ -21,6 +21,8 @@ namespace LudumDare40.Entities
 
 		private PlayerData playerData;
 
+		private bool idle;
+
 		public Player() : base(EntityTypes.Player)
 		{
 			LoadAnimations("PlayerAnimations.json");
@@ -32,6 +34,8 @@ namespace LudumDare40.Entities
 			Body.Friction = 0;
 			Body.ManuallyControlled = true;
 			Body.MaximumSpeed = new Vector2(PhysicsConvert.ToMeters(playerData.MaxSpeed), float.PositiveInfinity);
+
+			idle = true;
 
 			MessageSystem.Subscribe(MessageTypes.Keyboard, this);
 			MessageSystem.Subscribe(MessageTypes.Mouse, this);
@@ -79,6 +83,12 @@ namespace LudumDare40.Entities
 				Body.ApplyRawForce(new Vector2(PhysicsConvert.ToMeters(playerData.Acceleration * multiplier), 0));
 
 				FlipHorizontally = aDown;
+
+				if (idle)
+				{
+					idle = false;
+					PlayAnimation("Running");
+				}
 			}
 			else if (Math.Abs(Body.LinearVelocity.X) > 0)
 			{
@@ -92,6 +102,12 @@ namespace LudumDare40.Entities
 			{
 				Body.Accelerating = false;
 				Body.Decelerating = false;
+
+				if (!idle)
+				{
+					idle = true;
+					PlayAnimation("Idle");
+				}
 			}
 		}
 

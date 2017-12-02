@@ -35,10 +35,9 @@ namespace LudumDare40.Animations
 
 			// Animation frames are assumed centered.
 			origin = new Vector2(width, height) / 2;
-			currentFrame = strip.FrameStart;
 
 			// Each frame is also assumed to have the same duration.
-			frameDuration = 1000f / strip.FrameCount;
+			frameDuration = strip.FrameRate;
 			Color = Color.White;
 			Scale = 1;
 		}
@@ -51,8 +50,8 @@ namespace LudumDare40.Animations
 
 			if (frameElapsed >= frameDuration)
 			{
-				currentFrame = currentFrame == strip.FrameStart + strip.FrameCount ? strip.FrameStart : ++currentFrame;
-				sourceRect.X = (currentFrame - strip.FrameStart) * strip.FrameWidth;
+				currentFrame = currentFrame == strip.FrameCount - 1 ? 0 : ++currentFrame;
+				sourceRect.X = currentFrame * strip.FrameWidth;
 				frameElapsed -= frameDuration;
 			}
 		}

@@ -5,8 +5,16 @@
 			"Name": "Idle",
 			"FrameWidth": 48,
 			"FrameHeight": 96,
-			"Frames": "0-1",
-			"FrameRate": 600 
+			"FrameCount": 2,
+			"FrameRate": 600
+		},
+		
+		{
+			"Name": "Running",
+			"FrameWidth": 64,
+			"FrameHeight": 96,
+			"FrameCount": 2,
+			"FrameRate": 350 
 		}
 	]
 }
